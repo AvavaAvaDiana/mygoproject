@@ -7,7 +7,6 @@
 package mygoproject
 
 import (
-	"awesomeProject/chapter5"
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -302,8 +301,8 @@ func _ProgrammerService_GetProgrammerInfo_Handler(srv interface{}, ctx context.C
 		return srv.(ProgrammerServiceServer).GetProgrammerInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
-		main.Server: srv,
-		FullMethod:  "/proto.ProgrammerService/GetProgrammerInfo",
+		Server:     srv,
+		FullMethod: "/proto.ProgrammerService/GetProgrammerInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ProgrammerServiceServer).GetProgrammerInfo(ctx, req.(*Request))
